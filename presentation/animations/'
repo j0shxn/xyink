@@ -1,0 +1,118 @@
+#manim
+
+from manim import *
+import numpy as np
+ul = 5
+#class ThreeDCameraRotation(ThreeDScene):
+def s2c( psi, phi, r ):
+    return [ r * np.cos(phi) * np.cos(psi),\
+             r * np.cos(phi) * np.sin(psi),\
+             r * np.sin(phi) ]
+
+DEG = DEGREES
+
+class main(ThreeDScene):
+
+    CONFIG = {
+        "x_axis_label": "$x$",
+        "y_axis_label": "$y$",
+        "basis_i_color": GREEN,
+        "basis_j_color": RED,
+        "basis_k_color": GOLD
+    }
+
+    def construct(self):
+
+        text0 = Tex(r"Rotating a vector around another\\ vector preserves their\
+                    inner product.")
+
+        self.play(Write(text0))
+        self.wait()
+        self.play(FadeOut(text0))
+
+        text1 = Tex(r"As such the conical set of vectors\
+                      for an axis is defined as:")
+
+        basel1 = MathTex(r"c \in (-1,1),\; \mathbb{S}_{\hat k}(c) =\
+                         \{ \hat v : \hat v \cdot \hat k = c \}.")
+        group1 = VGroup(text1, basel1).arrange(DOWN)
+        self.play(Write(group1))
+        self.wait(5)
+
+        self.remove(group1)
+
+#       basel1_1 = MathTex(r"c \in (-1,1), \ \\ \mathbb{S}_{\hat k}(c) =\
+#                   \{ \hat v : \hat v \cdot \hat k = c \}.")
+#       basel1_1.font_size = 36
+#       group1_1 = VGroup(basel1_1)
+#       group1_1 = VGroup(text1_1, basel1_1).arrange(DOWN)
+#       group1_1.to_corner(UL)
+#       self.add_fixed_in_frame_mobjects(group1_1)
+#       #self.play(Transform(group1, group1_1))
+#
+#       #k_axis = Arrow(np.array([3,0,0]), np.array([-0.8,-0.8,-1.8]))
+#       #self.add(k_axis)
+
+        axes = ThreeDAxes()
+        axes.set_color(GRAY)
+        axes.add(axes.get_axis_labels())
+
+        k_axis = Vector(np.array([2,0,2]))
+        k_label = Text("k").next_to(k_axis, k_axis.get_tip() + np.array([0,0,1]))
+
+        basel1_1 = MathTex(r"c \in (-1,1),\\ \mathbb{S}_{\hat k}(c) =\
+                         \{ \hat v : \hat v \cdot \hat k = c \}.")
+        basel1_1.font_size = 36
+
+        #cone = Cone(direction=-5*X_AXIS, resolution=12)
+        #cone.height = 5
+
+        self.add(axes)
+        self.add(k_axis)
+
+        self.add_fixed_in_frame_mobjects(basel1_1)
+        self.add_fixed_orientation_mobjects(k_label)
+        basel1_1.to_corner(UP + LEFT)
+
+        self.set_camera_orientation(phi=60 * DEG, theta=0 * DEG, focal_distance = 10)
+        self.begin_ambient_camera_rotation(rate=0.1)
+
+        self.play( GrowArrow(k_axis),
+                   Write(basel1_1) )
+
+        #self.move_camera(phi=75 * DEGREES, theta=-30 * DEGREES)
+        self.wait(10)
+
+        joint_cone = Cone(direction = k_axis.get_center(),
+                          u_min = 0,
+                          base_radius = float(np.linalg.norm(k_axis.get_center())))
+
+
+#       self.play(
+#           Transform(text0,text1),
+#           FadeIn(basel1, shift=DOWN)
+#       )
+#       #
+#       self.play( ReplacementTransform(text0, text1) )
+#
+#       text1_1 = Tex(r"As such the conical set of vectors \
+#                       \\for an axis is defined as:")
+#
+#       text1_1.to_corner(UP+LEFT)
+#
+#       basel1_1 = MathTex(r"c \in (-1,1), \
+#                   \\ \mathbb{S}_{\hat k}(c) =\
+#                   \{ \hat v : \hat v \cdot \hat k = c \}.")
+#       basel1_1.to_corner(UP+LEFT)
+#
+#       VGroup(text1_1, basel1_1).arrange(DOWN)
+#
+#       self.play(
+#           Transform(text1, text1_1),
+#           Transform(basel1, basel1_1)
+#       )
+#       self.wait()
+#       
+#       self.play( ReplacementTransform(group1, text1_1) )
+#       self.wait()
+#

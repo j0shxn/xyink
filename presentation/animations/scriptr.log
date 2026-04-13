@@ -1,0 +1,221 @@
+filename: inverse_synthesis.py
+filewoext: inverse_synthesis
+fileext: py
+Manim Community v0.18.1
+
+[05/06/24 04:02:31] INFO     Animation 0 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             1185818338_3718288485_22313245                     
+                             7)                                                 
+Animation 0: Write(Tex('So we see that: a rotated $\\hat p$ around $\\hat w$ \\\\ \\\n                      must belong to to the conic set of $\\hat x$.')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                                       INFO     Animation 1 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1141282389_345397423                     
+                             7)                                                 
+[05/06/24 04:02:32] INFO     Animation 2 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_223808805_3221975234                     
+                             )                                                  
+Animation 2: FadeIn(MathTex('R_{\\hat w}(\\phi) \\hat p \\\n                           \\in \\mathbb{S}_{\\hat x}(\\hat l \\cdot \\hat x)')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                   [05/06/24 04:02:33] INFO     Animation 3 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_3890345977_280780260                     
+                             7)                                                 
+                    INFO     Animation 4 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_3137549663_344092002                     
+                             7)                                                 
+Animation 4: FadeOut(Tex('So we see that: a rotated $\\hat p$ around $\\hat w$ \\\\ \\\n                      must belong to to the conic set of $\\hat x$.')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                     [05/06/24 04:02:34] INFO     Animation 5 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_334030218_3419067115                     
+                             )                                                  
+Animation 5: Transform(MathTex('R_{\\hat w}(\\phi) \\hat p \\\n                           \\in \\mathbb{S}_{\\hat x}(\\hat l \\cdot \\hat x)')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                      [05/06/24 04:02:35] INFO     Animation 6 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1141282389_291488824                     
+                             5)                                                 
+                    INFO     Animation 7 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_60466113_3187400396)                     
+Animation 7: FadeIn(MathTex('\\iff R_{\\hat w} (\\phi) \\hat p \\cdot \\hat x = \\\n                           \\hat l \\cdot \\hat x,')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                    INFO     Animation 8 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_2475379470_425150266                     
+                             3)                                                 
+[05/06/24 04:02:36] INFO     Animation 9 : Using cached     cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_3033035717_266603490                     
+                             3)                                                 
+Animation 9: FadeIn(MathTex(' \\rightarrow \\phi = \\sin^{-1} \\left[\\\n                            \\frac{ \\cos\\alpha \\cos\\beta -\\\n                            \\cos\\gamma \\cos\\lambda }{ \\sin\\gamma \\\n                            \\sin\\lambda } \\right].')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                                                                                                                                                         INFO     Animation 10 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_255102487_478456164)                     
+[05/06/24 04:02:37] INFO     Animation 11 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_3472943822_979255783                     
+                             )                                                  
+Animation 11: FadeOut(MathTex('R_{\\hat w}(\\phi) \\hat p \\\n                           \\in \\mathbb{S}_{\\hat x}(\\hat l \\cdot \\hat x)')), etc.:   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                               INFO     Animation 12 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_3890345977_271869100                     
+                             4)                                                 
+[05/06/24 04:02:40] INFO     Animation 13 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_255533843_1338557007                     
+                             )                                                  
+Animation 13: Write(Tex('Similarly for the X-Joint angle we observe that\\\\ \\\n                      an inverse rotation of $\\hat l$ around $\\hat x$ must\\\\ \\\n                      be an element of the set $\\hat S_{\\hat w}$')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                                                                                                  [05/06/24 04:02:41] INFO     Animation 14 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1141282389_331833947                     
+                             9)                                                 
+[05/06/24 04:02:42] INFO     Animation 15 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1396388217_130760416                     
+                             )                                                  
+Animation 15: FadeIn(MathTex('R_{\\hat x}(-\\psi) \\hat l \\\n                           \\in \\mathbb{S}_{\\hat w}(\\hat p \\cdot \\hat w)')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                         INFO     Animation 16 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_3890345977_363907083                     
+                             4)                                                 
+[05/06/24 04:02:44] INFO     Animation 17 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_2472797089_268524038                     
+                             7)                                                 
+Animation 17: FadeOut(Tex('Similarly for the X-Joint angle we observe that\\\\ \\\n                      an inverse rotation of $\\hat l$ around $\\hat x$ must\\\\ \\\n                      be an element of the set $\\hat S_{\\hat w}$')), etc.:   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                                                                                                          [05/06/24 04:02:45] INFO     Animation 18 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1141282389_192883865                     
+                             2)                                                 
+                    INFO     Animation 19 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1870092143_707521843                     
+                             )                                                  
+Animation 19: FadeIn(MathTex('\\iff R_{\\hat x}(-\\psi) \\hat l \\cdot \\\n                           \\hat w = \\hat p \\cdot \\hat w')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                    INFO     Animation 20 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_2475379470_124151380                     
+                             5)                                                 
+[05/06/24 04:02:46] INFO     Animation 21 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_2115166564_279695722                     
+                             2)                                                 
+Animation 21: Transform(MathTex('R_{\\hat x}(-\\psi) \\hat l \\\n                           \\in \\mathbb{S}_{\\hat w}(\\hat p \\cdot \\hat w)')), etc.:   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                              [05/06/24 04:02:47] INFO     Animation 22 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1141282389_925557568                     
+                             )                                                  
+[05/06/24 04:02:48] INFO     Animation 23 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_100343831_3029062519                     
+                             )                                                  
+Animation 23: FadeIn(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                                                                                                                                                                                                                                                                                                                                       [05/06/24 04:02:49] INFO     Animation 24 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_1141282389_160932485                     
+                             1)                                                 
+[05/06/24 04:02:50] INFO     Animation 25 : Using cached    cairo_renderer.py:88
+                             data (hash :                                       
+                             624642324_2564682524_877055795                     
+                             )                                                  
+Animation 25: FadeOut(Tex('It produces the transcendental equation:')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                                             Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  13%|█▎        | 2/15 [00:00<00:00, 15.61it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  27%|██▋       | 4/15 [00:00<00:00, 16.43it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  40%|████      | 6/15 [00:00<00:00, 16.39it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  53%|█████▎    | 8/15 [00:00<00:00, 16.41it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  67%|██████▋   | 10/15 [00:00<00:00, 16.10it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  80%|████████  | 12/15 [00:00<00:00, 16.49it/s]Animation 26: Transform(MathTex('\\begin{split}\\\n                           \\cos\\psi \\sin\\alpha \\cos\\beta \\sin\\lambda +\\\n                           \\sin\\psi \\sin\\beta \\sin\\lambda \\\\ \\\n                           - \\cos\\alpha \\cos\\beta \\cos\\lambda +\\\n                           \\cos \\gamma = 0,\\\n                           \\end{split} ')):  93%|█████████▎| 14/15 [00:00<00:00, 16.20it/s]                                                                                                                                                                                                                                                                                                                                                                                                                                    [05/06/24 04:02:55] INFO     Animation 26 : Partial     scene_file_writer.py:527
+                             movie file written in                              
+                             '/home/bcskn/reps/Xyink/ic                         
+                             cre/conference/presentatio                         
+                             n/animations/media/videos/                         
+                             inverse_synthesis/480p15/p                         
+                             artial_movie_files/main/62                         
+                             4642324_3204886624_3683426                         
+                             655.mp4'                                           
+[05/06/24 04:02:56] INFO     Animation 27 : Partial     scene_file_writer.py:527
+                             movie file written in                              
+                             '/home/bcskn/reps/Xyink/ic                         
+                             cre/conference/presentatio                         
+                             n/animations/media/videos/                         
+                             inverse_synthesis/480p15/p                         
+                             artial_movie_files/main/62                         
+                             4642324_255102487_20212438                         
+                             35.mp4'                                            
+                    INFO     Combining to Movie file.   scene_file_writer.py:617
+[05/06/24 04:02:57] INFO                                scene_file_writer.py:737
+                             File ready at                                      
+                             '/home/bcskn/reps/Xyink/ic                         
+                             cre/conference/presentatio                         
+                             n/animations/media/videos/                         
+                             inverse_synthesis/480p15/m                         
+                             ain.mp4'                                           
+                                                                                
+                    INFO     The partial movie          scene_file_writer.py:707
+                             directory is full (> 100                           
+                             files). Therefore, manim                           
+                             has removed the 2 oldest                           
+                             file(s). You can change                            
+                             this behaviour by changing                         
+                             max_files_cached in                                
+                             config.                                            
+                    INFO     Rendered main                          scene.py:247
+                             Played 28 animations                               
+ (+) Video --vid=1 (*) (h264 854x480 15.000fps)
+File tags:
+ Comment: Rendered with Manim Community v0.18.1
+VO: [gpu] 854x480 yuv420p
+V: 00:00:00 / 00:00:48 (0%)
+V: 00:00:00 / 00:00:48 (1%)
+V: 00:00:00 / 00:00:48 (2%)
+V: 00:00:01 / 00:00:48 (2%)
+V: 00:00:01 / 00:00:48 (3%)
+V: 00:00:01 / 00:00:48 (4%)
+V: 00:00:02 / 00:00:48 (4%)
+V: 00:00:02 / 00:00:48 (5%)
+V: 00:00:07 / 00:00:48 (16%)
+V: 00:00:08 / 00:00:48 (17%)
+V: 00:00:13 / 00:00:48 (28%)
+V: 00:00:14 / 00:00:48 (29%)
+V: 00:00:14 / 00:00:48 (30%)
+V: 00:00:19 / 00:00:48 (40%)
+V: 00:00:20 / 00:00:48 (42%)
+V: 00:00:25 / 00:00:48 (52%)
+V: 00:00:26 / 00:00:48 (54%)
+V: 00:00:26 / 00:00:48 (55%)
+V: 00:00:31 / 00:00:48 (65%)
+V: 00:00:32 / 00:00:48 (67%)
+V: 00:00:32 / 00:00:48 (68%)
+V: 00:00:32 / 00:00:48 (69%)
+V: 00:00:33 / 00:00:48 (69%)
+V: 00:00:33 / 00:00:48 (70%)
+V: 00:00:33 / 00:00:48 (71%)
+V: 00:00:34 / 00:00:48 (71%)
+V: 00:00:34 / 00:00:48 (72%)
+V: 00:00:34 / 00:00:48 (73%)
+V: 00:00:35 / 00:00:48 (73%)
+V: 00:00:35 / 00:00:48 (74%)
+V: 00:00:35 / 00:00:48 (75%)
+V: 00:00:36 / 00:00:48 (75%)
+V: 00:00:36 / 00:00:48 (76%)
+V: 00:00:36 / 00:00:48 (77%)
+V: 00:00:37 / 00:00:48 (77%)
+V: 00:00:37 / 00:00:48 (78%)
+V: 00:00:37 / 00:00:48 (79%)
+V: 00:00:38 / 00:00:48 (79%)
+V: 00:00:38 / 00:00:48 (80%)
+V: 00:00:38 / 00:00:48 (81%)
+V: 00:00:39 / 00:00:48 (81%)
+V: 00:00:39 / 00:00:48 (82%)
+V: 00:00:39 / 00:00:48 (83%)
+V: 00:00:40 / 00:00:48 (83%)
+V: 00:00:40 / 00:00:48 (84%)
+V: 00:00:40 / 00:00:48 (85%)
+V: 00:00:41 / 00:00:48 (85%)
+V: 00:00:41 / 00:00:48 (86%)
+V: 00:00:41 / 00:00:48 (87%)
+V: 00:00:42 / 00:00:48 (88%)
+V: 00:00:42 / 00:00:48 (89%)
+V: 00:00:43 / 00:00:48 (90%)
+V: 00:00:43 / 00:00:48 (91%)
+V: 00:00:43 / 00:00:48 (92%)
+V: 00:00:44 / 00:00:48 (92%)
+V: 00:00:44 / 00:00:48 (93%)
+V: 00:00:44 / 00:00:48 (94%)
+V: 00:00:45 / 00:00:48 (94%)
+V: 00:00:45 / 00:00:48 (95%)
+V: 00:00:45 / 00:00:48 (96%)
+V: 00:00:46 / 00:00:48 (96%)
+V: 00:00:46 / 00:00:48 (97%)
+V: 00:00:46 / 00:00:48 (98%)
+V: 00:00:47 / 00:00:48 (98%)
+V: 00:00:47 / 00:00:48 (99%)
+V: 00:00:47 / 00:00:48 (100%)
+V: 00:00:00 / 00:00:48 (0%)
+V: 00:00:00 / 00:00:48 (1%)
+V: 00:00:00 / 00:00:48 (2%)
+V: 00:00:01 / 00:00:48 (2%)
+V: 00:00:01 / 00:00:48 (3%)
+V: 00:00:01 / 00:00:48 (4%)
+Exiting... (Quit)

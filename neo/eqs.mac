@@ -1,0 +1,44 @@
+I3: ident(3);
+
+sph2cart(sp) := block(
+    vect: matrix([sp[3]*cos(sp[2])*cos(sp[1]),
+                  sp[3]*cos(sp[2])*sin(sp[1]),
+                  sp[3]*sin(sp[2])]),
+    return(vect)
+);
+
+Rodri(k, ang) := block(
+    K: matrix([ [0, -k[3], k[2]],
+                [k[3], 0, -k[1]],
+                [-k[2], k[1], 0] ]),
+
+    Rv: I3 + sin(ang)*K + (1-cos(ang))*K^2,
+    return(Rv)
+);
+
+euler_sin(x) := (exp(%i*x) - exp(-%i*x))/(%i*2);
+euler_cos(x) := (exp(%i*x) + exp(-%i*x))/2;
+
+alpha: beta: assume(realp(alpha), realp(beta));
+
+psi: phi: assume(realp(psi), realp(phi));
+
+zeta: gamma: assume(realp(zeta), realp(gamma));
+assume(zeta > 0, gamma > 0);
+
+x: matrix([1, 0, 0]);
+p: sph2cart([zeta, gamma, 1]);
+w: matrix([cos(zeta), sin(zeta), 0]);
+l: sph2cart([-alpha, beta, 1]);
+
+/* Find Phi */
+Rw: Rodri(w, phi);
+y_eq: (Rw.p)' * x = (l)' * x;
+phi_eq: solve(y_eq, phi);
+
+/* Find Psi */
+Rx: Rodri(x, -psi);
+x_eq: (Rx.l)' * w = (p)' * w;
+
+ecos_psi: euler_cos(psi);
+esin_psi: euler_sin(-psi);

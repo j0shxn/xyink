@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'invkin.blg'
+[172] biber:340> INFO - === Mon Nov 13, 2023, 22:34:44
+[199] Biber.pm:415> INFO - Reading 'invkin.bcf'
+[344] Biber.pm:952> INFO - Found 3 citekeys in bib section 0
+[371] Biber.pm:4340> INFO - Processing section 0
+[394] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[395] bibtex.pm:1689> INFO - LaTeX decoding ...
+[404] bibtex.pm:1494> INFO - Found BibTeX data source 'main.bib'
+[531] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[532] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[532] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[532] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[549] bbl.pm:654> INFO - Writing 'invkin.bbl' with encoding 'UTF-8'
+[553] bbl.pm:757> INFO - Output to invkin.bbl

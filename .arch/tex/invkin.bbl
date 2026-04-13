@@ -1,0 +1,172 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{ji2003}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=af01e6b4db19ef61c48454cdaf4d4fe5}{%
+           family={Ji},
+           familyi={J\bibinitperiod},
+           given={Tongbo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fc5e2deaefeed0b7fc95dd6a05215e16}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiuhua},
+           giveni={X\bibinitperiod}}}%
+        {{hash=41c6b6f4a597fe448f8c527afaf76feb}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ec9dc7e666340951d9b64f07cb87b025}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=281067fc91aefafc213f3bbeea7b2888}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Guangjun},
+           giveni={G\bibinitperiod}}}%
+        {{hash=601a67ffc4fe2ee84a12d532ef1ccb55}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Huijie},
+           giveni={H\bibinitperiod}}}%
+        {{hash=7c68c6c98ccc831dd4a3bb84e08a0a5a}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Zhongyu},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{organization}{2}{%
+        {International Society for Optics}%
+        {Photonics}%
+      }
+      \list{publisher}{1}{%
+        {SPIE}%
+      }
+      \strng{namehash}{0b22ee904973b22d55044e651a38bb68}
+      \strng{fullhash}{6bfff0e41ec8e3f96d57c151a29abaae}
+      \strng{bibnamehash}{0b22ee904973b22d55044e651a38bb68}
+      \strng{authorbibnamehash}{0b22ee904973b22d55044e651a38bb68}
+      \strng{authornamehash}{0b22ee904973b22d55044e651a38bb68}
+      \strng{authorfullhash}{6bfff0e41ec8e3f96d57c151a29abaae}
+      \strng{editorbibnamehash}{c84a37b9297c91f94075f0ba5de2cb3c}
+      \strng{editornamehash}{c84a37b9297c91f94075f0ba5de2cb3c}
+      \strng{editorfullhash}{c84a37b9297c91f94075f0ba5de2cb3c}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Fifth International Symposium on Instrumentation and Control Technology}
+      \field{title}{{Analysis of tracking performance for altitude-azimuth pedestal near the zenith}}
+      \field{volume}{5253}
+      \field{year}{2003}
+      \field{pages}{398\bibrangedash 401}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1117/12.521401
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1117/12.521401
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1117/12.521401
+      \endverb
+    \endentry
+    \entry{tehrani2014}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=2753dc57fa9c6183779d64d89e6da022}{%
+           family={Tehrani},
+           familyi={T\bibinitperiod},
+           given={Nafiseh\bibnamedelima Mazaheri},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=68ecb03ad1d641b4d50ed07522554811}{%
+           family={Vali},
+           familyi={V\bibinitperiod},
+           given={Ahmadreza},
+           giveni={A\bibinitperiod}}}%
+        {{hash=da899f6ad2893ce9b87922e6dbd6c6e7}{%
+           family={Javanfar},
+           familyi={J\bibinitperiod},
+           given={Elham},
+           giveni={E\bibinitperiod}}}%
+        {{hash=b3452c0c855b357966307cfa8ab738a0}{%
+           family={Tehrani},
+           familyi={T\bibinitperiod},
+           given={Hesam\bibnamedelima Mazaheri},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a90312b695501793c0649495e24bc185}
+      \strng{fullhash}{3cbd78a15085d627f8cdd807dcdf8bb3}
+      \strng{bibnamehash}{a90312b695501793c0649495e24bc185}
+      \strng{authorbibnamehash}{a90312b695501793c0649495e24bc185}
+      \strng{authornamehash}{a90312b695501793c0649495e24bc185}
+      \strng{authorfullhash}{3cbd78a15085d627f8cdd807dcdf8bb3}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2014 CACS International Automatic Control Conference (CACS 2014)}
+      \field{title}{Full extracting kinematic and dynamic equations of X/Y pedestal with velocity analysis}
+      \field{year}{2014}
+      \field{pages}{215\bibrangedash 221}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/CACS.2014.7097190
+      \endverb
+    \endentry
+    \entry{willey2000}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e1895ac634a578be9e289bd9248d06ba}{%
+           family={Willey},
+           familyi={W\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Horizon House Publications, Inc.}%
+      }
+      \strng{namehash}{e1895ac634a578be9e289bd9248d06ba}
+      \strng{fullhash}{e1895ac634a578be9e289bd9248d06ba}
+      \strng{bibnamehash}{e1895ac634a578be9e289bd9248d06ba}
+      \strng{authorbibnamehash}{e1895ac634a578be9e289bd9248d06ba}
+      \strng{authornamehash}{e1895ac634a578be9e289bd9248d06ba}
+      \strng{authorfullhash}{e1895ac634a578be9e289bd9248d06ba}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Microwave journal}
+      \field{number}{4}
+      \field{title}{Selecting a pedestal for tracking LEO satellites at Ka band}
+      \field{volume}{43}
+      \field{year}{2000}
+      \field{pages}{118\bibrangedash 118}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,45 @@
+\documentclass[border=3pt]{standalone}
+
+%Drawing
+\usepackage{tikz}
+
+%3D
+\usepackage{tikz-3dplot}
+
+\begin{document}
+% Spherical Coordinates
+\tdplotsetmaincoords{60}{110}
+\begin{tikzpicture}[scale=3, tdplot_main_coords]
+    \coordinate (O) at (0,0,0);
+    \def\alphadeg{-60}
+    \def\betadeg{60}
+    \def\lambdadeg{70}
+    \def\gammadeg{70}
+
+    \tdplotsetcoord{W}{1}{90}{\lambdadeg}
+    \tdplotsetcoord{L}{1}{90-\betadeg}{\alphadeg}
+    \tdplotsetcoord{P}{1}{90-\gammadeg}{\lambdadeg}
+
+    \draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=east]{$\hat x$};
+    \draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=west]{$\hat y$};
+    \draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$\hat z$};
+    \draw[thick,->] (0,0,0) -- (W) node[anchor=north west]{$\hat w$};
+
+    \draw[->, thick] (O) -- (L) node[anchor=south west]{$\hat l$}; 
+    \draw[->, thick] (O) -- (P) node[anchor=west]{$\hat p$}; 
+
+    \draw[dashed, color=black] (O) -- (Lxy);
+    \draw[dashed, color=black] (L) -- (Lxy);
+
+    \draw[dashed, color=black] (O) -- (Pxy);
+    \draw[dashed, color=black] (P) -- (Pxy);
+
+    \tdplotdrawarc{(O)}{0.15}{0}{-60}{anchor=north east}{$\alpha$}
+    \tdplotdrawarc{(O)}{0.15}{0}{\lambdadeg}{anchor=north}{$\lambda$}
+    \tdplotsetthetaplanecoords{90}
+    \tdplotdrawarc[tdplot_rotated_coords]{(O)}{0.162}{-38}
+    {-106}{anchor=east}{$\beta$};
+    \tdplotdrawarc[tdplot_rotated_coords]{(O)}{0.125}{89-\gammadeg}
+    {105}{anchor=west}{$\gamma$};
+\end{tikzpicture}
+\end{document}

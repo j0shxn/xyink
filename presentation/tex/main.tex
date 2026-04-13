@@ -1,0 +1,27 @@
+\documentclass[a4paper]{article}
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{amsmath,amssymb,amsfonts}
+
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\dg}{\ensuremath{^{\circ}}}
+
+\begin{document}
+
+\begin{itemize}
+    \item $\hat p$ : Unit vector showing the orientation of the antenna
+    \item $\hat l$ : Target orientation
+    \item $\hat w$ : Y-Joint axis
+    \item $\hat x$ : X-Joint axis and pedestal basis
+\end{itemize}
+
+\begin{itemize}
+    \item $\alpha$ : Azimuth angle (CW positive)
+    \item $\beta$ : Elevation angle
+    \item $\lambda$ : Angle between the X-Joint and Y-Joint (ideally $90\dg$).
+    \item $\lambda$ : Angle between the $\hat p$ and $\hat w$ (ideally $90\dg$).
+\end{itemize}
+
+\begin{equation}
+    \psi = i \log\left( \frac{ -(\cos^{2}{\alpha } \cos^{2}{\beta } - 2 \cos{\alpha } \cos{\beta } \cos{\gamma } \cos{\lambda } + \cos^{2}{\gamma } + \cos^{2}{\lambda } - 1)^{\frac{1}{2}} + \cos{\alpha } \cos{\beta } \cos{\lambda } - \cos{\gamma } } { (\sin{\alpha } \cos{\beta } - i \sin{\beta }) \sin{\lambda } } \right).
+\end{equation}
+\end{document}

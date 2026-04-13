@@ -1,0 +1,9 @@
+.Dt XYINK 1
+.Sh NAME
+.Nm xyink
+.Nd Inverse kinematics calculator for XY satellite terminal pedestals.
+.Sh SYNOPSIS
+.Nm xyink
+.Sh AUTHORS
+.Pp
+Bugra Coskun <bgra.coskn@gmail.com>

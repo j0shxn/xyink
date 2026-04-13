@@ -1,0 +1,70 @@
+Greetings esteemed researchers,
+
+@Title
+My name is Bugra Coskun. I'm a Mathematical Engineering master's student in 
+Istanbul Technical University and I've worked as a control engineer for a ground 
+antenna station research and development company for the past 2.5 years. The 
+research I will be presenting today: titled Inverse Kinematics of X-Y pedestals
+with Joint and Pointing Misalignments focuses on a seemingly trivial problem
+of kinematics but as we will see there are some nuances that deserve a well
+packaged approach. Additionally this research also includes a surface level
+know-how in satellite tracking.
+
+@Contents
+The contents of this presentation can be seen in this slide.
+
+@Introduction
+X-Y pedestals are 2 revolute joint manipulators generally used in
+Low-Earth-Orbit satellite communications with higher power needs. They don't
+suffer the zenith problem like azimuth- elevation pedestals and they can output
+more power than electronically steered panel antennas. In turn they are more
+unforgiving to manufacturing issues compared to Azimuth-Elevation pedestals and
+mechanical systems create more areas for errors. Obvious as it is, tracking a
+satellite with an antenna pedestal is like trying to keep a laser pointer on a
+tennis ball. But the tennis ball is at the far end of this conference hall and
+the laser is invisible, knowing only when we actually hit the tennis ball.
+
+@Problem Definition ----------------------------------------------------------
+The problem is apparent, it is hard to manufacture precisely and for high
+frequencies and high gains these mechanical errors start to pile up. To give an
+example a beamwidth for 52.4GHz 4 meter parabolic antenna is only 0.5 degrees
+wide. But manufacturing precisely is hard and expensive! While measuring
+precisely is relatively cheaper and can be easier. Even if we could manufacture
+perfectly we usually cant' be sure that the pedestal won't tilt or flex while
+swinging around a few hundred kilograms of mass..
+
+@Motivation ------------------------------------------------------------------
+Thus confronted with these issues and the lack of a generalized solution
+addressing these issues was the basis for the motivation of this research.
+Previous notable research from Tehrani et. al. includes a comprehensive
+analysis of the kinematics and dynamics of X-Y pedestals but focusing only on
+systems where ideal geometry approximation is acceptible, meaning lower gain.
+
+Augustin et. al. 1994 mentions the use of table of values being inputted to the
+inverse kinematic software for orthogonality issues but further information on
+this topic doesn't seem to be available.
+
+@Method ----------------------------------------------------------------------
+Here is the pedestal basis and coordinate system constructed for an imperfect
+pedestal.
+
+@Inverse Kinematics ----------------------------------------------------------
+Foundation for the inverse kinematics solutions is the relationship between
+possible rotations around the joint axes.
+
+As you can see we define the conical set of vectors around the axis using
+the inner product.
+
+As practicality dictates we first consider the rotation around the W axis
+to not deal with intrinsic rotations. 
+Of course we can only rotate the antenna in a certain way around the W
+conserving the inner product.
+
+We then define the S_X using the target vector. As you can see in the 
+animation there are two locations belonging to both sets. We are concerned
+only with the nearest.
+
+@Workspace
+
+@Application
+

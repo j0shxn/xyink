@@ -1,0 +1,318 @@
+\documentclass[a4paper,onecolumn,11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{cuted}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{biblatex}
+\usepackage[skip=2pt, font=scriptsize]{caption}
+\usepackage{indentfirst}
+\hyphenpenalty1000
+\addbibresource{main.bib}
+
+%-----------------------------------------------------------------------------
+\usepackage{xcolor}
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%------------------------------------------------------------------------------
+\begin{document}
+\title{Inverse Kinematics and Workspace Analysis of X-Y Pedestal
+with Joint and Pointing Misalignment } 
+\author{Buğra Coşkun\thanks{E-mail:
+\texttt{bugra.coskun@profen.com}}}
+
+\date{\vspace{-2ex}\scriptsize05.09.2023}
+\maketitle
+\vspace{-5ex}
+\normalsize
+%------------------------------------------------------------------------------
+
+
+As per convention we express unitary vectors in $\mathbb{R}^3$ with a hat.
+
+\begin{equation}
+    \hat w = \begin{bmatrix}
+            \cos(\lambda) \\
+            \sin(\lambda) \\
+            0
+        \end{bmatrix} , \;
+    \;\;\;
+    \hat p := \begin{bmatrix}
+        \cos(\lambda) \cos(\gamma) \\
+        \sin(\lambda) \cos(\gamma) \\
+        \sin(\gamma)
+    \end{bmatrix}
+\end{equation}
+
+We define the surface of a joint as being the set of all unitary vectors where
+their dot products against the joint axis are some value $c$.
+\begin{equation} 
+    c \in [-1,1], \mathbb{S}_{\hat k}(c) = \{ \hat v :
+        \hat v \cdot \hat k = c \}.
+\end{equation}
+For any rotation around the joint axis the dot products of vectors belonging
+to the surface are conserved:
+\begin{equation}
+    \forall \hat v \in \mathbb{S}_{\hat k}(c), \forall \theta \in (-\pi,\pi],
+        R_{\hat k}(\theta)\hat v \in \mathbb{S}_{\hat k}(c)
+        \because R_{\hat k}(\theta) \in SO(3).
+\end{equation}
+We define the concept of loose reachability as satisfying the below condition,
+\begin{align}
+        \hat l \in \mathbb{S}_{\hat x} (\hat l \cdot \hat x) & \therefore 
+        R_{\hat x} (\psi) R_{\hat w}(\phi) \hat p = \hat l \\
+        & \Leftrightarrow R_{\hat w}(\phi) \hat p 
+        \in \mathbb{S}_{\hat x}(\hat l \cdot \hat x) \\
+        & \Leftrightarrow R_{\hat w} (\phi) \hat p \cdot \hat x = 
+        \hat l \cdot \hat x.
+\end{align}
+As such if there is a $\phi$ angle that can bring $\hat p$ to the surface
+of $\hat x$ defined by $\hat l$ we consider $\hat l$ to be loosely reachable.
+Solving Eq(5) for $\phi$ we get:
+\begin{equation}
+    \phi = \sin^{-1} \left[
+        \frac{ \cos(\alpha) \cos(\beta) - \cos(\gamma) \cos(\lambda) }
+        { \sin(\gamma) \sin(\lambda) }
+    \right]
+\end{equation}
+\newpage
+\begin{equation}
+    \hat p^* = R_{\hat w}(\phi) \hat p, 
+    \hat p^* \in \mathbb{S}_{\hat x}(\hat l \cdot \hat x) 
+    \cap \mathbb{S}_{\hat w}(\hat p \cdot \hat w)
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \;R_{\hat x}(\psi)\hat p^* = \hat l 
+        & \iff I \hat p^* = R_{\hat x}^{-1}(\psi) \hat l 
+        = R_{\hat x}(-\psi) \hat l \\ 
+        & \iff R_{\hat x}(-\psi) \hat l 
+        \in \mathbb{S}_{\hat w}(\hat p \cdot \hat w) \\
+        & \iff R_{\hat x}(-\psi) \hat l \cdot \hat w = \hat p \cdot \hat w
+    \end{split}
+\end{equation}
+From here we need the euler forms of $\sin\psi$ and $\cos\psi$ as it 
+produces a transcendental equation in the general form. \\
+!!insert complex general form!!\\
+But if we have the luxury of leveraging the already produced $\phi$ angle.
+We could use vector analysis to calculate the necessary $\psi$ angle
+as well.
+!! insert image of vector method !!
+\begin{equation}
+    \psi = \sin^{-1} 
+    \left[ 
+        \left(
+           \frac{ \hat p^* \times \hat x }{ || \hat p^* \times \hat x || }
+           \times
+           \frac{ \hat l \times \hat x }{ || \hat l \times \hat x || }
+        \right)
+        \cdot \hat x
+    \right]
+\end{equation}
+---
+
+\begin{equation}
+\psi = -i \, \log\left(\frac{\cos\left(\alpha\right) \cos\left(\beta\right)
+\cos\left(\zeta\right)}{\cos\left(\beta\right) \sin\left(\alpha\right)
+\sin\left(\zeta\right) - i \, \sin\left(\beta\right) \sin\left(\zeta\right)} -
+\frac{\cos\left(\gamma\right)}{\cos\left(\beta\right) \sin\left(\alpha\right)
+\sin\left(\zeta\right) - i \, \sin\left(\beta\right) \sin\left(\zeta\right)} -
+\frac{\sqrt{\cos\left(\alpha\right)^{2} \cos\left(\beta\right)^{2}
+\cos\left(\zeta\right)^{2} - \cos\left(\beta\right)^{2}
+\sin\left(\alpha\right)^{2} \sin\left(\zeta\right)^{2} - 2 \,
+\cos\left(\alpha\right) \cos\left(\beta\right) \cos\left(\gamma\right)
+\cos\left(\zeta\right) - \sin\left(\beta\right)^{2} \sin\left(\zeta\right)^{2}
++ \cos\left(\gamma\right)^{2}}}{\cos\left(\beta\right) \sin\left(\alpha\right)
+\sin\left(\zeta\right) - i \, \sin\left(\beta\right)
+\sin\left(\zeta\right)}\right)
+\end{equation}
+
+\begin{equation}
+\left[\phi = -\arcsin\left(-\frac{\cos\left(\alpha\right)
+    \cos\left(\beta\right)}{\sin\left(\gamma\right) \sin\left(\zeta\right)} +
+    \frac{\cos\left(\gamma\right)
+    \cos\left(\zeta\right)}{\sin\left(\gamma\right)
+    \sin\left(\zeta\right)}\right)\right]
+\end{equation}
+
+\begin{equation} 
+    \psi = -i \, \log(\frac{\cos(\alpha)
+    \cos(\beta) \cos(\zeta)}{\cos(\beta)
+    \sin(\alpha) \sin(\zeta) - i \,
+    \sin(\beta) \sin(\zeta)}
+\end{equation}
+
+\begin{equation} 
+    - \frac{\cos(\gamma)}{\cos(\beta)
+    \sin(\alpha) \sin(\zeta) - i \,
+    \sin(\beta) \sin(\zeta)} 
+\end{equation} 
+
+\begin{equation} 
+    - \frac{\sqrt{\cos(\alpha)^{2}
+    \cos(\beta)^{2} \cos(\zeta)^{2} -
+    \cos(\beta)^{2} \sin(\alpha)^{2}
+    \sin(\zeta)^{2} - 2 \, \cos(\alpha)
+    \cos(\beta) \cos(\gamma) \cos(\zeta) -
+    \sin(\beta)^{2} \sin(\zeta)^{2} +
+    \cos(\gamma)^{2}}}{\cos(\beta)
+    \sin(\alpha) \sin(\zeta) - i \,
+    \sin(\beta) \sin(\zeta)}) 
+\end{equation}
+
+\begin{equation} \psi = -i \,
+    \log\left(-\frac{{\left({\left(\cos\left(\alpha\right)^{2} - 2\right)}
+    \cos\left(\beta\right)^{2} + 2 i \, \cos\left(\beta\right)
+    \sin\left(\alpha\right) \sin\left(\beta\right) + 1\right)}
+    \cos\left(\gamma\right) + {\left(-2 i \, \cos\left(\alpha\right)
+    \cos\left(\beta\right)^{2} \sin\left(\alpha\right) \sin\left(\beta\right) -
+    {\left(\cos\left(\alpha\right)^{3} - 2 \, \cos\left(\alpha\right)\right)}
+    \cos\left(\beta\right)^{3} - \cos\left(\alpha\right)
+    \cos\left(\beta\right)\right)} \cos\left(\zeta\right) +
+    \sqrt{\cos\left(\alpha\right)^{2} \cos\left(\beta\right)^{2} - 2 \,
+    \cos\left(\alpha\right) \cos\left(\beta\right) \cos\left(\gamma\right)
+    \cos\left(\zeta\right) + \cos\left(\gamma\right)^{2} -
+    \sin\left(\zeta\right)^{2}} {\left({\left(\cos\left(\alpha\right)^{2} -
+    2\right)} \cos\left(\beta\right)^{2} + 2 i \, \cos\left(\beta\right)
+    \sin\left(\alpha\right) \sin\left(\beta\right) +
+    1\right)}}{{\left({\left(\cos\left(\alpha\right)^{2} - 4\right)}
+    \cos\left(\beta\right)^{3} \sin\left(\alpha\right) + 3 \,
+    \cos\left(\beta\right) \sin\left(\alpha\right) - {\left({\left(3 i \,
+    \cos\left(\alpha\right)^{2} - 4 i\right)} \cos\left(\beta\right)^{2} +
+    i\right)} \sin\left(\beta\right)\right)} \sin\left(\zeta\right)}\right)
+\end{equation}
+\begin{equation}
+i \log{(\frac{- \sqrt{\cos^{2}{\alpha } \cos^{2}{\beta } - 2 \cos{\alpha } \cos{\beta } \cos{\gamma } \cos{\zeta } + \cos^{2}{\gamma } + \cos^{2}{\zeta } - 1} + \cos{\alpha } \cos{\beta } \cos{\zeta
+} - \cos{\gamma }}{(\sin{\alpha } \cos{\beta } - i \sin{\beta }) \sin{\zeta }} )}
+\end{equation}
+
+\begin{align}
+    \psi &= \sin^{-1} 
+    \left[ 
+        \left(
+           \frac{ \hat p^* \times \hat x }{ || \hat p^* \times \hat x || }
+           \times
+           \frac{ \hat l \times \hat x }{ || \hat l \times \hat x || }
+        \right)
+        \cdot \hat x
+    \right]\\
+    &=
+\end{align}
+
+\begin{equation}
+\cos{\gamma} = - (\sin{\alpha} \cos{\beta } \cos{\psi} - \sin{\beta} \sin{\psi}) \sin{\lambda} + \cos{\alpha} \cos{\beta} \cos{\lambda}
+\end{equation}
+\begin{equation}
+    \operatorname{asin}{\left[
+        \frac{
+            \splitdfrac{
+                - (\sin{\gamma} \sin{\phi} \cos{\zeta} 
+                - \sin{\zeta} \cos{\gamma}) \sin{\beta}
+            }
+            {
+                + \sin{\alpha} \sin{\gamma} \cos{\beta} \cos{\phi }
+            }
+        }
+        {
+            \splitdfrac{
+                \Big((\sin{\gamma} \sin{\phi} \cos{\zeta} 
+                - \sin{\zeta} \cos{\gamma})^{2} 
+            }
+            {
+                + \sin^{2}{\gamma} \cos^{2}{\phi}\Big)^{\frac{1}{2}}
+                (- \cos^{2}{\alpha} \cos^{2}{\beta} 
+                + 1)^{\frac{1}{2}}
+            }
+        } 
+    \right]}
+\end{equation}
+\begin{equation}
+    \psi = i \log\left(
+        \frac{
+            \splitfrac{
+                -(\cos^{2}{\alpha } \cos^{2}{\beta } 
+            }
+            {
+                \splitfrac{\mathstrut
+                    - 2 \cos{\alpha } \cos{\beta } 
+                    \cos{\gamma } \cos{\lambda }
+                }
+                {
+                    \splitfrac{\mathstrut
+                        + \cos^{2}{\gamma } 
+                        + \cos^{2}{\lambda } - 1)^{1/2} 
+                    }
+                    {
+                                + \cos{\alpha } \cos{\beta } \cos{\lambda } 
+                                - \cos{\gamma }
+                    }
+                }
+            }
+        }
+        {
+            (\sin{\alpha } \cos{\beta } - i \sin{\beta }) \sin{\lambda }
+        }
+    \right).
+\end{equation}
+\begin{equation}
+    \psi = i \log\left(
+        \vcenter{\hbox{$\displaystyle
+        \frac{
+            \begin{aligned}
+                -(\cos^{2}{\alpha } &\cos^{2}{\beta } \\
+                - 2 \cos&{\alpha } \cos{\beta } \cos{\gamma } \cos{\lambda } \\
+                + &\cos^{2}{\gamma } + \cos^{2}{\lambda } - 1)^{\frac{1}{2}} \\
+                &+ \cos{\alpha } \cos{\beta } \cos{\lambda } - \cos{\gamma }
+            \end{aligned}
+        }
+        {
+            (\sin{\alpha } \cos{\beta } - i \sin{\beta }) \sin{\lambda }
+        }$}}
+    \right).
+\end{equation}
+
+\begin{equation}
+    \operatorname{asin}\left[
+        \frac{
+            \begin{aligned}
+                -& (\sin{\gamma} \sin{\phi} \cos{\zeta} - \sin{\zeta} \cos{\gamma}) \sin{\beta} \\
+                &+ \sin{\alpha} \sin{\gamma} \cos{\beta} \cos{\phi }
+            \end{aligned}
+        }
+        {
+            \begin{aligned}
+                &\Big((\sin{\gamma} \sin{\phi} \cos{\zeta} - \sin{\zeta} \cos{\gamma})^{2} \\
+                &+ \sin^{2}{\gamma} \cos^{2}{\phi}\Big)^{\frac{1}{2}} (- \cos^{2}{\alpha} \cos^{2}{\beta} + 1)^{\frac{1}{2}}
+            \end{aligned}
+        }
+    \right]
+\end{equation}
+
+\newpage
+\begin{equation}
+    \psi = \sin^{-1}{\left(
+    \frac{
+        \begin{aligned}
+            - (\sin\gamma \sin\phi \cos\zeta
+            - \sin\zeta \cos\gamma) \sin&\beta\\
+            + \sin\alpha \sin\gamma \cos\beta &\cos\phi
+        \end{aligned}
+    }
+    {
+        \begin{aligned}
+            (- \cos^{2}\alpha \cos^{2}\beta + 1)^{\frac{1}{2}}
+            \big((\sin\gamma \sin\phi &\cos\zeta \\
+            - \sin\zeta \cos\gamma)^{2} 
+            + \sin^{2}\gamma &\cos^{2}\phi\big)^{\frac{1}{2}}
+        \end{aligned}
+    }
+\right)}
+\end{equation}
+
+\end{document}
+

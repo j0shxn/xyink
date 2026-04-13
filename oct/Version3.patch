@@ -1,0 +1,175 @@
+--- PTM_List_Creator_v2_1.m	2022-12-29 20:11:37.200937137 +0300
++++ PTM_List_Creator_v3.m	2022-12-29 20:10:15.759470736 +0300
+@@ -1,8 +1,8 @@
+ %% @ Generating PTM list in TUBITAK UZAY PTM format from Doppler Az-El data
+ 
+-% Author    : Mustafa Çelik
+-% Version   : 2.1.0
+-% Date      : 15.03.2022
++% Author    : Mustafa Celik, Bugra Coskun (Version 3 Changes Only)
++% Version   : 3.0.0
++% Date      : 15.12.2022
+ % Brief     : For 1.0.0 version:
+ %           With this code, required PTM lists are obtained by using 
+ %           satellite pass .csv files generated from Doppler software.
+@@ -52,6 +52,7 @@
+ Elevation = table2array(Pass_data(:,4));            % Converting Elevation data type from table to array
+ Time_Split = datevec(Time_array,'HH:MM:SS');        % Separating time values each column into hours, minutes, seconds
+ Time_UTC = Time_Split(1:end,4:end);                 % Obtaining time information in 3 x Data length matrix
++Orthogonality_Error = 0 % Radians
+ 
+ % For information and use in for loops purposes, calculating and printing the size of pass data
+ size_L = length(Azimuth_raw);
+@@ -61,13 +62,6 @@
+ 
+ % For loop to check the probability of Hour value exceeding or equal to 24
+ % hours with the added UTC offset value
+-for n=1:size_L                                      % Include all hours from 1 to pass data length in the loop
+-    if Hour(n) >= 24                                % Checking if the hour value is greater than or equal 24 
+-	Hour(n) = Hour(n) - 24;                         % Subtract 24 if the hour value is greater than or equal 24 (Ex: 25 - 24 = 1)
+-    else
+-	Hour(n) = Hour(n);                              % Get exact hour if condition is not met	
+-    end
+-end
+ 
+ Minute = Time_UTC(:,2);                             % Define minute only as a single column
+ Second = Time_UTC(:,3);                             % Define second only as a single column
+@@ -80,21 +74,13 @@
+ 
+ Azimuth = zeros(size_L,1);                          % Creating empty matrix for Azimuth value to check
+ 
+-for j=1:size_L                                      % Include all Azimuths from 1 to pass data length in the loop
+-    if Azimuth_offset (j) < 0                       % Checking if the azimuth value is negative
+-       Azimuth (j)= 360 + Azimuth_offset (j);       % Add 360 if azimuth value is less than 0 (Ex: 360 - 1 = 359)
+-    elseif Azimuth_offset (j) > 360                 % Checking if the azimuth value is greater than 360
+-       Azimuth (j)= Azimuth_offset (j) - 360;       % Subtract 360 if the azimuth value is greater than 360 (Ex: 361 - 360 = 1)
+-    else
+-        Azimuth (j)= Azimuth_offset (j);            % Get Azimuth offset if both conditions are not met
+-    end
+-end
+-
+ % For loop for checking if the elevation is less than or equal to 0
+ % If the Elevation value equals absolute 0, 
+ % the trigonometric equation will not calculate the correct result
+ 
+ for i=1:size_L                                      % Include all Elevatioýns from 1 to pass data length in the loop
++    Hour(n) = mod(Hour(n),24) % Normalize Hour
++    Azimuth (j) = mod(360 + Azimuth_offset, 360); % Normalize Azimuth
+     if Elevation(i) <= 0                            % Checking if the elevation value is less than or equal to 0 
+         Elevation(i) = 0.001;                       % Take the elevation value as 0.001 if the condition is met
+     end
+@@ -134,38 +120,84 @@
+ Azimuth_r = deg2rad(Azimuth);                      % Azimuth angle conversion from degree to radian
+ Elevation_r = deg2rad(Elevation);                  % Elevation angle conversion from degree to radian
+ 
+-% For loop to calculate the corresponding X-Axis (lower) and Y-Axis (upper) angles 
+-% in the Azimuth-Elevation angle in each row over the entire pass data length
+-% m=size:-1:1 means takes m values from tail to head.
+-% Because in the PTM file, the data must be created from tail to head.
+-
+-for m=size_L:-1:1                                  % Include all Azimuth-Elevation from 1 to pass data length in the loop
+-
+-   % Calculation of X-Y axis angles with Atan2 conversion formula from Azimuth-Elevation
+-   rotation_antenna(m) = 1*cos(Elevation_r(m))*sin(Azimuth_r(m));
+-   Y_Axis_r(m) = atan2(rotation_antenna(m),sqrt(1-rotation_antenna(m)^2));             % Calculation Y-Axis Angle [rad]
+-   X_Axis_r(m) = atan2((cos(Azimuth_r(m))*cos(Elevation_r(m))/cos(Y_Axis_r(m))),...    
+-        (sin(Elevation_r(m))/cos(Y_Axis_r(m))));                                       % Calculation X-Axis Angle [rad]
+-   Y_Axis_d(m) = rad2deg(Y_Axis_r(m));              % Y-Axis angle conversion from radian to degree [deg]
+-   Y_Axis_d(m) = round(Y_Axis_d(m)*100)/100;        % Define Y-Axis as two digits [deg]
+-   X_Axis_d(m) = rad2deg(X_Axis_r(m));              % X-Axis angle conversion from radian to degree [deg]
+-   X_Axis_d(m) = round(X_Axis_d(m)*100)/100;        % Define X-Axis as two digits [deg]
+-   
+-   % checking if the calculated X-Y axis angles are greater than or equal
+-   % to ±90 degrees. if the condition is met, they are equal to ±90.
+-   if X_Axis_d(m) >= 90 
+-        X_Axis_d(m) = 90;
+-    elseif X_Axis_d(m) <= -90
+-        X_Axis_d(m) = -90;
+-   end
+-
+-   if Y_Axis_d(m) >= 90 
+-        Y_Axis_d(m) = 90;
+-   elseif Y_Axis_d(m) <= -90
+-        Y_Axis_d(m) = -90;
+-   end
++Offset = 90; % Degrees, 
++
++% The linear transformations are considered in a case where the X joint 
++% coincides with the X-Axis in the local coordinate frame and the Y joint
++% coincides with the Y-Axis similarly. Y joint is on top of the X joint
++% thus gets manipulated by it. Therefore for the East placement of the the
++% pedestal system an offset of 90 degrees must be added to the azimuth angle
++% furthermore the transformations are done in a frame where the Z-Axis points
++% UP thus being a NWU frame. So the negative of the azimuth angle is considered
++
++ModifiedAzimuth = mod(360 - (Azimuth + Offset), 360);
++SphericalP = deg2rad(ModifiedAzimuth);
++SphericalT = deg2rad(Elevation);
++losv = spherical2cartesian([SphericalP,SphericalT,1]);
++% Quadratic form to get the double roots of the X joint
++cotld = cos(ld)/sin(ld);
++nomp0 = -(losv(1)*cotld);
++nomp1 = sqrt( losv(1)^2 * cotld^2 - losv(2)^2 - losv(3)^2 );
++nom0 = nomp0 + nomp1;
++nom1 = nomp0 - nomp1;
++den = losv(2) - i * losv(3);
++
++% Normalize the X roots
++PSI0 = mod(real(-i*log(nom0/den)), 2*pi);
++PSI1 = mod(real(-i*log(nom1/den)), 2*pi);
++
++%fprintf("X roots are %d and %d\n", rad2deg(PSI0), rad2deg(PSI1))
++
++% Check which of the X roots are within mechanical boundaries of the system
++PSI0 = PSI0 - 2*pi*( PSI0 > pi );
++PSI1 = PSI1 - 2*pi*( PSI1 > pi );
++
++if PSI0 < pi/2 && PSI0 > -pi/2
++    PSI = PSI0;
++elseif PSI1 < pi/2 && PSI1 > -pi/2
++    PSI = PSI1;
++else
++    % The given azimuth and elevation angle are out of the workspace of the 
++    % pedestal. Give a warning but continue with taking the minimum (absolute)
++    % root.
++    fprintf("WARNING: Out of workspace at < %d , %d > \n",...
++        Azimuth_D, Elevation_D)
++    if abs(PSI0) < abs(PSI1)
++        PSI = PSI0;
++    elseif
++        PSI = PSI1;
++    end
+ end
+ 
++% Rotation the X motor does to the tip point vector without Y rotation
++Rx = [ 1 0 0 ; 0 cos(PSI) -sin(PSI) ; 0 sin(PSI) cos(PSI)];
++Zhat = [0 ; 0 ; 1];
++Tipv = Rx * Zhat;
++
++% Original Y motor joint axis
++K0v = [ cos(ld) ; sin(ld) ; 0 ];
++
++% Rotated Y motor joint axis
++Kv = Rx * K0v;
++
++nTipLos = cross(Tipv, losv);
++TipLos = nTipLos / norm(nTipLos);
++unnormSign = dot(TipLos, Kv);
++
++% Warning, kind of funky
++if unnormSign < 0
++    phiSign = 1;
++elseif unnormSign > 0
++    phiSign = -1;
++else
++    phiSign = 0;
++end
++PHI = phiSign * acos( dot(Tipv, losv) );
++
++% Return the calculated XY angles
++X_Axis_d = rad2deg(PSI);
++Y_Axis_d = rad2deg(PHI);
++
+ %% Limit the maximum velocity of X and Y Axis at 5 deg/s
+ % Due to the structure of the antenna system, the X and Y axes can have a maximum speed of 5 d/s.
+ % Very rarely, the X-Y axis may need speeds over 5 d/s in singular positions.
